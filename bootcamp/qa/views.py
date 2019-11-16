@@ -13,7 +13,7 @@ from bootcamp.qa.models import Question, Answer
 from bootcamp.qa.forms import QuestionForm
 
 
-class QuestionsIndexListView(LoginRequiredMixin, ListView):
+class QuestionsIndexListView(ListView):
     """CBV to render a list view with all the registered questions."""
     model = Question
     paginate_by = 20
@@ -50,7 +50,7 @@ class QuestionListView(QuestionsIndexListView):
         return context
 
 
-class QuestionDetailView(LoginRequiredMixin, DetailView):
+class QuestionDetailView(DetailView):
     """View to call a given Question object and to render all the details about
     that Question."""
     model = Question

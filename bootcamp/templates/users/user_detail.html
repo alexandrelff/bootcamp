@@ -28,7 +28,9 @@
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           {{ object.get_profile_name|title }}
           <br />
-          <i class="fa fa-envelope" aria-hidden="true"></i><a class="email" href="mailto:{{ object.email }}">   {{ object.email }}</a><br />
+          {% if request.user.is_authenticated %}
+            <i class="fa fa-envelope" aria-hidden="true"></i><a class="email" href="mailto:{{ object.email }}">   {{ object.email }}</a><br />
+          {% endif %}
           {% if object.job_title %}
             <i class="fa fa-briefcase" aria-hidden="true"></i>  {{ object.job_title }} <br />
           {% endif %}
@@ -37,7 +39,9 @@
           {% endif %}
         </p>
     </div>
-    <div id="objective"><p>{{ object.bio }}</p></div>
+    {% if object.bio %}
+      <div id="objective"><p>{{ object.bio }}</p></div>
+    {% endif %}
     <div class="clear"></div>
     {% if object.personal_url %}
       <a href="{{ object.personal_url }}" style="font-size: 2em" title="{% trans 'RSS Channel' %}"><i class="fa fa-rss"></i>  </a>
@@ -54,9 +58,10 @@
     {% if object.facebook_account %}
       <a href="{{ object.facebook_account }}" style="font-size: 2em" title="{% trans 'Facebook Profile' %}"><i class="fa fa-facebook"></i>  </a>
     {% endif %}
-    <a class="btn btn-dark pull-right" href="{% url 'users:update' %}">{% trans 'Update Profile' %}</a>
+    {% if request.user.username == object.username %}
+      <a class="btn btn-dark pull-right" href="{% url 'users:update' %}">{% trans 'Update Profile' %}</a>
+    {% endif %}
   </div>
-  {% if request.user.username == object.username %}
     <!-- Data tiles -->
     <div class="row tile_count">
       <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
@@ -85,5 +90,4 @@
       </div>
     </div>
     <!-- /data tiles -->
-  {% endif %}
 {% endblock content %}

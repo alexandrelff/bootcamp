@@ -11,7 +11,7 @@ from bootcamp.helpers import ajax_required, AuthorRequiredMixin
 from bootcamp.news.models import News
 
 
-class NewsListView(LoginRequiredMixin, ListView):
+class NewsListView(ListView):
     """A really simple ListView, with some JS magic on the UI."""
     model = News
     paginate_by = 15

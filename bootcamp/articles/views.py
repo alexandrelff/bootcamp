@@ -9,7 +9,7 @@ from bootcamp.articles.models import Article
 from bootcamp.articles.forms import ArticleForm
 
 
-class ArticlesListView(LoginRequiredMixin, ListView):
+class ArticlesListView(ListView):
     """Basic ListView implementation to call the published articles list."""
     model = Article
     paginate_by = 15
@@ -63,6 +63,6 @@ class EditArticleView(LoginRequiredMixin, AuthorRequiredMixin, UpdateView):
         return reverse('articles:list')
 
 
-class DetailArticleView(LoginRequiredMixin, DetailView):
+class DetailArticleView(DetailView):
     """Basic DetailView implementation to call an individual article."""
     model = Article

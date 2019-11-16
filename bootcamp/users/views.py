@@ -5,7 +5,7 @@ from django.views.generic import DetailView, ListView, RedirectView, UpdateView
 from .models import User
 
 
-class UserDetailView(LoginRequiredMixin, DetailView):
+class UserDetailView(DetailView):
     model = User
     # These next two lines tell the view to index lookups by username
     slug_field = 'username'

@@ -40,10 +40,10 @@
         <hr>
 
         <!-- Comments Form -->
-        <div class="card my-4">
-          <h5 class="card-header">{% trans 'Leave a Comment' %}:</h5>
-          <div class="card-body">
-            {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
+          <div class="card my-4">
+            <h5 class="card-header">{% trans 'Leave a Comment' %}:</h5>
+            <div class="card-body">
               {% get_comment_form for article as form %}
               <form action="{% comment_form_target %}" method="POST">
                 {% csrf_token %}
@@ -51,9 +51,9 @@
                 <input type="hidden" name="next" value="{% url 'articles:article' article.slug %}" />
                 <input type="submit" value="{% trans 'Add comment' %}" id="id_submit" />
               </form>
-            {% endif %}
+            </div>
           </div>
-        </div>
+        {% endif %}
 
         <!-- Single Comment -->
 
