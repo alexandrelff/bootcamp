@@ -119,6 +119,7 @@
         <script type="text/javascript">
           var currentUser = "{{ request.user.username }}"
           $(function() {
+              $("#searchInput").autocomplete({
                   source: "{% url 'search:suggestions' %}",
                   minLength: 2
               });
