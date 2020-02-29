@@ -272,7 +272,7 @@ var WebSocketBridge = function () {
       var _url = void 0;
       // Use wss:// if running on https://
       var scheme = window.location.protocol === 'https:' ? 'wss' : 'ws';
-      var base_url = scheme + '://' + window.location.host;
+      var base_url = scheme + '://' + window.location.hostname + ':8090';
       if (url === undefined) {
         _url = base_url;
       } else {
