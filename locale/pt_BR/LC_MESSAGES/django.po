@@ -155,8 +155,7 @@ msgstr "Notificação"
 #: bootcamp/notifications/views.py:30
 #, python-brace-format
 msgid "All notifications to {request.user.username} have been marked as read."
-msgstr ""
-"Todas as notificações para {request.user.username} foram marcadas como lidas."
+msgstr "Todas as notificações para {request.user.username} foram marcadas como lidas."
 
 #: bootcamp/notifications/views.py:48
 #, python-brace-format
@@ -743,7 +742,7 @@ msgstr "Publicações mais recentes"
 
 #: bootcamp/templates/news/news_list.html:33
 msgid "There are new posts"
-msgstr "Não há novas publicações"
+msgstr "Ver novas publicações"
 
 #: bootcamp/templates/news/news_single.html:17
 #: bootcamp/templates/news/news_thread.html:19
