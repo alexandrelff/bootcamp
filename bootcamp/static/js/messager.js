@@ -55,7 +55,7 @@ $(function () {
     // WebSocket connection management block.
     // Correctly decide between ws:// and wss://
     var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-    var ws_path = ws_scheme + '://' + window.location.hostmame + ":8090/" + currentUser + "/";
+    var ws_path = ws_scheme + '://' + window.location.hostname + ":8090/" + currentUser + "/";
     var webSocket = new channels.WebSocketBridge();
     webSocket.connect(ws_path);
 
