@@ -37,6 +37,7 @@ $(function () {
         // the question status as published.
         $("input[name='status']").val("O");
         $("#question-form").submit();
+        logEvent("QA_NEW");
     });
 
     $("#draft").click(function () {
@@ -44,6 +45,7 @@ $(function () {
         // the question status as draft.
         $("input[name='status']").val("D");
         $("#question-form").submit();
+        logEvent("QA_DRAFT");
     });
 
     $(".question-vote").click(function () {
@@ -68,9 +70,11 @@ $(function () {
                 if (vote === "U") {
                     $('#questionUpVote').addClass('voted');
                     $('#questionDownVote').removeClass('voted');
+                    logEvent("QA_QUESTION_UPVOTE");
                 } else {
                     $('#questionDownVote').addClass('voted');
                     $('#questionUpVote').removeClass('voted');
+                    logEvent("QA_QUESTION_DOWNVOTE");
                 }
               $("#questionVotes").text(data.votes);
             }
@@ -99,9 +103,11 @@ $(function () {
                 if (vote === "U") {
                     $('#answerUpVote').addClass('voted');
                     $('#answerDownVote').removeClass('voted');
+                    logEvent("QA_ANSWER_UPVOTE");
                 } else {
                     $('#answerDownVote').addClass('voted');
                     $('#answerUpVote').removeClass('voted');
+                    logEvent("QA_ANSWER_DOWNVOTE");
                 }
               $("#answerVotes").text(data.votes);
             }
@@ -124,6 +130,7 @@ $(function () {
                 $("#acceptAnswer").prop("title", "Click to accept the answer");
                 $("#acceptAnswer").addClass("accepted");
                 $("#acceptAnswer").prop("title", "Click to unaccept the answer");
+                logEvent("QA_ANSWER_ACCEPT");
             }
         });
     });

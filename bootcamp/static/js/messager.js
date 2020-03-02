@@ -47,6 +47,7 @@ $(function () {
                 $(".send-message").before(data);
                 $("input[name='message']").val('');
                 scrollConversationScreen();
+                logEvent("MESSAGE_NEW");
             }
         });
         return false;

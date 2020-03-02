@@ -30,11 +30,15 @@
         {{ form|crispy }}
         <div class="control-group">
           <div class="controls">
-            <button type="submit" class="btn btn-dark">{% trans 'Update Profile' %}</button>
+            <button type="submit" class="btn btn-primary">{% trans 'Update Profile' %}</button>
           </div>
         </div>
       </form>
     </div>
   </div>
 
-{% endblock %}
+{% endblock content %}
+
+{% block modal %}
+  <script src="{% static 'js/users.js' %}"></script>
+{% endblock modal %}

@@ -66,6 +66,7 @@ $(function () {
         if ($(".popover").is(":visible")) {
             $("#notifications").popover('hide');
             checkNotifications();
+            logEvent("NOTIFICATIONS_HIDE");
         }
         else {
             $("#notifications").popover('dispose');
@@ -81,7 +82,8 @@ $(function () {
                         content: data,
                     });
                     $("#notifications").popover('show');
-                    $("#notifications").removeClass("btn-danger")
+                    $("#notifications").removeClass("btn-danger");
+                    logEvent("NOTIFICATIONS_SHOW");
                 },
             });
         }

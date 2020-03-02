@@ -70,6 +70,7 @@ $(function () {
                 $("#newsInput").val("");
                 $("#newsFormModal").modal("hide");
                 hide_stream_update();
+                logEvent("NEWS_NEW");
             },
             error : function(data){
                 alert(data.responseText);
@@ -87,6 +88,7 @@ $(function () {
             success: function (data) {
                 $("#replyInput").val("");
                 $("#newsThreadModal").modal("hide");
+                logEvent("NEWS_COMMENT_REPLY");
             },
             error: function(data){
                 alert(data.responseText);
@@ -112,9 +114,11 @@ $(function () {
                 if ($(".like .heart", li).hasClass("fa fa-heart")) {
                     $(".like .heart", li).removeClass("fa fa-heart");
                     $(".like .heart", li).addClass("fa fa-heart-o");
+                    logEvent("NEWS_UNLIKE");
                 } else {
                     $(".like .heart", li).removeClass("fa fa-heart-o");
                     $(".like .heart", li).addClass("fa fa-heart");
+                    logEvent("NEWS_LIKE");
                 }
             }
         });
@@ -138,6 +142,7 @@ $(function () {
                 $("input[name=parent]").val(data.uuid)
                 $("#newsContent").html(data.news);
                 $("#threadContent").html(data.thread);
+                logEvent("NEWS_COMMENT_OPEN");
             }
         });
         return false;
