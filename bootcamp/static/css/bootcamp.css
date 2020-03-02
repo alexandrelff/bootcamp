@@ -4,10 +4,29 @@ body {
   padding-top: 80px;
 }
 
+hr {
+  border-width: 3px;
+  border-color: #FFC30F;
+}
+
+hr.light {
+  border-color: #fff;
+}
+
+a {
+  color: #c70039;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: #c70039;
+}
+
 header .navbar-brand {
   font-size: 1.4em;
   font-weight: 200;
-  font-family: "Audiowide", cursive;
 }
 
 .markdownx .markdownx-editor {
@@ -85,4 +104,72 @@ header .navbar-brand {
   padding: 0 0 0 .6em;
   margin-left: 45px;
   margin-bottom: 0;
+}
+
+.bg-primary {
+  background-color: #FFC30F !important;
+}
+
+.bg-dark {
+  background-color: #1a0633 !important;
+}
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+section {
+  padding: 8rem 0;
+}
+
+.section-heading {
+  margin-top: 0;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #c70039;
+  text-shadow: none;
+}
+
+::selection {
+  color: #fff;
+  background: #c70039;
+  text-shadow: none;
+}
+
+.text-primary {
+  color: #FFC30F !important;
+}
+
+.btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  color: #1a0633;
+}
+
+.btn-xl {
+  padding: 1rem 2rem;
+}
+
+.btn-primary {
+  background-color: #FFC30F;
+  border-color: #FFC30F;
+  padding: 6px 8px;
+  margin: 3px 10px 3px 0px;
+  font-size: 14px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  color: #544763;
+  background-color: #FFD969 !important;
+}
+
+.btn-primary:active, .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
+}
+
+.btn-danger{
+  color: #FFF !important;
 }

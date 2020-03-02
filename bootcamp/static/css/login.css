@@ -383,9 +383,8 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Raleway-Bold;
   font-size: 16px;
-  color: #fff;
+  color: #1a0633;
   line-height: 1.2;
 
   display: -webkit-box;
@@ -398,8 +397,9 @@ iframe {
   padding: 0 20px;
   min-width: 150px;
   height: 55px;
-  background-color: #333333;
-  border-radius: 27px;
+  background-color: #FFC30F;
+  border-color: #FFC30F;
+  border-radius: .25rem;
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -408,7 +408,16 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background-color: #57b846;
+  color: #544763;
+  background-color: #FFD969;
+}
+
+.btn-link{
+  color: #c70039;
+}
+
+.btn-link:hover{
+  color: #c70039;
 }
 
 
