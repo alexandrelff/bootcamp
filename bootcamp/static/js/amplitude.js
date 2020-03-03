@@ -105,11 +105,12 @@ function logUserUpdate(data){
 }
 
 var pagePath = window.location.pathname.split("/").filter(value => value != "");
+var urls = {};
 if(pagePath.length > 0){
-    var urls = {};
     pagePath.forEach((value, index) => {
         urls["url" + index] = value;
     });
-    console.log(urls);
-    logEvent("PAGE_VIEW", urls);
+}else{
+    urls.url0 = "home";
 }
+logEvent("PAGE_VIEW", urls);
