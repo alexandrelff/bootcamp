@@ -74,8 +74,6 @@ AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_S3_ENDPOINT_URL = env('AWS_S3_ENDPOINT_URL')
-# https://github.com/pydanny/cookiecutter-django/issues/1885
-AWS_DEFAULT_ACL = None
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
 AWS_AUTO_CREATE_BUCKET = True
 # https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
