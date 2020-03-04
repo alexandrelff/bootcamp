@@ -79,8 +79,8 @@
   margin-top: 1em;
 }
 
-.answer .answer-user, .question .question-user {
-  margin-bottom: .6em;
+.answer-description {
+  clear: both;
 }
 
 .answer .answer-user .user, .question .question-user .user {
@@ -88,13 +88,20 @@
   border-radius: 5px;
 }
 
-.answer .answer-user .username, .question .question-user .username {
-  margin-left: .4em;
+.answer .answer-user .user-image, .question .question-user .user-image {
+  margin-right: 5px;
+}
+
+.question .question-user .text-secondary{
+  font-size: 0.8em;
+}
+
+.question .question-user .username {
+  margin-left: 5px;
 }
 
 .answer .answered, .question .asked {
   color: #aaaaaa;
-  margin-left: .6em;
 }
 
 .favorite {
@@ -110,9 +117,7 @@
 }
 
 .question-info {
-  text-align: center;
-  float: left;
-  padding: 0 1em;
+  margin-right: 15px;
 }
 
 .question-title {
@@ -134,4 +139,25 @@
 
 .glyphicon-star-empty {
   font-size: 1em;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.grid-left {
+  width: 80px;
+  padding-right: 15px;
+  grid-column: 1;
+}
+
+.grid-left .question-info{
+  margin-right: 0px;
+}
+
+.grid-right {
+  grid-column: 2;
+  width: auto;
+  min-width: 0;
 }

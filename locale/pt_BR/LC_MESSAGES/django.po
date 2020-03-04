@@ -818,7 +818,7 @@ msgstr "Faça uma pergunta"
 #: bootcamp/templates/qa/question_detail.html:39
 #: bootcamp/templates/qa/question_sample.html:18
 msgid "Asked"
-msgstr "Perguntadas"
+msgstr "Perguntou"
 
 #: bootcamp/templates/qa/question_detail.html:50
 msgid "Submit an answer"

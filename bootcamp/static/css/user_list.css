@@ -1,24 +1,17 @@
 .user-profiles-list{
   line-height: 1;
   list-style:none;
-  text-align: center;
-  margin:0;
   padding:0;
 }
 
-.user-profiles-list li{
-  display: inline-block;
-  box-sizing:border-box;
-  position: relative;
-
-  text-align:left;
-  font:normal 16px sans-serif;
+.user-profiles-list .user{
   padding: 15px 30px 15px 20px;
-  margin: 12px;
-
-  background-color:#f4f8fa;
-  border:1px solid #dbe3e7;
+  margin: 10px 0px;
+  background-color: #f4f8fa;
+  border: 1px solid #dbe3e7;
   box-shadow: 0 2px 3px #dbe3e7;
+  height: 110px;
+  display: block;
 }
 
 .user-profiles-list .user-avatar{
@@ -33,26 +26,27 @@
 }
 
 .user-profiles-list p{
+  font-size:18px;
+  font-weight:bold;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   text-align: left;
   margin-top: 20px;
-  max-width:340px;
-}
-
-.user-profiles-list p a{
-  color:#5d6569;
-  text-decoration: none;
-  font-weight:bold;
-  font-size:18px;
+  max-width: 340px;
 }
 
 .user-profiles-list p span{
+  font-weight: normal;
   display: block;
   font-size: 13px;
   color:#808d93;
   padding-top:4px;
+}
+
+.user-profiles-list a:hover p span{
+  text-decoration: underline;
+  text-decoration-color: #808d93;
 }
 
 /* Making the list responsive */

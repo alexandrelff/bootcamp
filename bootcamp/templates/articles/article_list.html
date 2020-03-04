@@ -9,15 +9,16 @@
 {% endblock head %}
 
 {% block content %}
-
   <!-- Page Content -->
   <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'news:list' %}">{% trans 'Home' %}</a></li>
-        <li class="breadcrumb-item active"><a href="{% url 'articles:list' %}">{% trans 'Articles' %}</a></li>
-      </ol>
-    </nav>
+    <div class="page-header">
+      <h1>{% trans "Articles" %}</h1>
+      <!-- Write Article Widget -->
+      {% if request.user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'articles:write_new' %}" title="{% trans 'Write a new article' %}"><i class="fa fa-pencil" aria-hidden="true"></i> {% trans 'New Article' %}</a>
+        <a class="btn btn-success" href="{% url 'articles:drafts' %}" title="{% trans 'Drafts' %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {% trans 'Drafts' %}</a>
+      {% endif %}
+    </div>
     <div class="row">
       <!-- Blog Entries Column -->
       <div class="col-md-8">
@@ -73,17 +74,8 @@
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
-        <!-- Write Article Widget -->
-        {% if request.user.is_authenticated %}
-          <div class="card my-4">
-            <div class="card-body text-center">
-              <a class="btn btn-success" href="{% url 'articles:write_new' %}" title="{% trans 'Write a new article' %}"><i class="fa fa-pencil" aria-hidden="true"></i> {% trans 'New Article' %}</a>
-              <a class="btn btn-primary" href="{% url 'articles:drafts' %}" title="{% trans 'Drafts' %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {% trans 'Drafts' %}</a>
-            </div>
-          </div>
-        {% endif %}
         <!-- Cloud Tag Widget -->
-        <div class="card my-4">
+        <div class="card">
           <h5 class="card-header">{% trans 'Cloud tag' %}</h5>
           <div class="card-body">
             {% for tag, count in popular_tags %}

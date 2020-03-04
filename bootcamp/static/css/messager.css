@@ -25,15 +25,6 @@
   margin-bottom: .2em;
 }
 
-.messages-list li div {
-  margin-left: 60px;
-}
-
-.messages-list .picture {
-  border-radius: 5px;
-  float: left;
-}
-
 .chat-box {
   position: fixed;
   bottom: 0;

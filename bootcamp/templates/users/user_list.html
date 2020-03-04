@@ -8,43 +8,38 @@
 {% endblock head %}
 
 {% block content %}
+  <!-- Page Content -->
+  <div class="container">
+    <div class="page-header">
+      <h1>{% trans 'Contacts' %}</h1>
+    </div>
 
-  <div class="page-header">
-    <h1>{% trans 'Contacts' %}</h1>
+    <ul class="user-profiles-list row">
+      {% for user in user_list %}
+        <li class="col-sm-12 col-md-6 col-lg-4">
+          <a href="{% url 'users:detail' user.username  %}" class="user">
+            <div class="user-avatar">
+              <div  alt="{% trans 'User Image' %}" class="user-image" style="width: 80px; height: 80px;{% thumbnail user.picture 'x80' as im %} background-image: url({{ im.url }});{% endthumbnail %}"></div>
+            </div>
+            <p>
+              {{ user.get_profile_name|title }}
+              <span>
+                {% if user.job_title %}
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                  <i>  {{ user.job_title}}</i>
+                {% endif %}
+              </span>
+              <span>
+                {% if user.location %}
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <i>  {{ user.location }}</i>
+                {% endif %}
+              </span>
+            </p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
-
-  <ul class="user-profiles-list">
-    {% for user in user_list %}
-      <li>
-        <div class="user-avatar">
-          <a href="{% url 'users:detail' user.username  %}" class="user-avatar">
-            {% thumbnail user.picture "x80" as im %}
-              <img src="{{ im.url }}" alt="{% trans 'Picture Profile' %}" id="pic">
-            {% empty %}
-              <img src="{% static 'img/user.png' %}" height="80px" alt="{% trans 'No Profile Picture' %}" />
-            {% endthumbnail %}
-          </a>
-        </div>
-        <p>
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-          <a class="email" href="mailto:{{ user.email }}">
-            {{ user.get_profile_name|title }}
-          </a>
-          <span>
-            {% if user.job_title %}
-              <i class="fa fa-briefcase" aria-hidden="true"></i>
-              <i>  {{ user.job_title}}</i>
-            {% endif %}
-          </span>
-          <span>
-            {% if user.location %}
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <i>  {{ user.location }}</i>
-            {% endif %}
-          </span>
-        </p>
-      </li>
-    {% endfor %}
-  </ul>
-
+  <!-- /.container -->
 {% endblock content %}

@@ -2,17 +2,12 @@
 {% load static i18n %}
 {% load crispy_forms_tags %}
 
-{% block title %}{% trans 'Answer a question' %}{% endblock %}
-
 {% block content %}
 
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url 'news:list' %}">{% trans 'Home' %}</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'qa:index_all' %}">{% trans 'Q&A' %}</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{% trans 'Answer a question' %}</li>
-    </ol>
-  </nav>
+  <div class="page-header">
+    <h1>{% trans 'Answer a question' %}</h1>
+  </div>
+
   <form action="{% url 'qa:propose_answer' view.kwargs.question_id %}" id="answerForm" method="post" role="form">
     {% csrf_token %}
     {{ form|crispy }}

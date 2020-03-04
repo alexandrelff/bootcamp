@@ -9,7 +9,11 @@
 {% endblock head %}
 
 {% block content %}
+  <!-- Page Content -->
   <div class="container">
+    <div class="page-header">
+      <h1>{{ object.username|title }}</h1>
+    </div>
 
     {% thumbnail object.picture "x250" as im %}
       <img src="{{ im.url }}" alt="Picture Profile" id="pic">
@@ -18,19 +22,15 @@
     {% endthumbnail %}
 
     <div id="contact-info" class="vcard">
+        {% if object.short_bio %}
         <h1 class="fn">
-          {{ object.username|title }}
-          {% if object.short_bio %}
-            <br /><small style="font-size: 50%">{{ object.short_bio }}</small>
-          {% endif %}
+          <small style="font-size: 50%">{{ object.short_bio }}</small>
         </h1>
+        {% endif %}
         <p>
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           {{ object.get_profile_name|title }}
           <br />
-          {% if request.user.is_authenticated %}
-            <i class="fa fa-envelope" aria-hidden="true"></i><a class="email" href="mailto:{{ object.email }}">   {{ object.email }}</a><br />
-          {% endif %}
           {% if object.job_title %}
             <i class="fa fa-briefcase" aria-hidden="true"></i>  {{ object.job_title }} <br />
           {% endif %}
@@ -62,32 +62,34 @@
       <a class="btn btn-primary pull-right" href="{% url 'users:update' %}">{% trans 'Update Profile' %}</a>
     {% endif %}
   </div>
-    <!-- Data tiles -->
-    <div class="row tile_count">
-      <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-envelope"></i> {% trans 'Feeds' %}</span>
-        <div class="count">0</div>
-      </div>
-      <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-pencil"></i> {% trans 'Articles' %}</span>
-        <div class="count">0</div>
-      </div>
-      <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-comment"></i> {% trans 'Comments' %}</span>
-        <div class="count">0</div>
-      </div>
-      <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-question-sign"></i> {% trans 'Questions' %}</span>
-        <div class="count">0</div>
-      </div>
-      <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-education"></i> {% trans 'Answers' %}</span>
-        <div class="count">0</div>
-      </div>
-      <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
-        <span class="count_top"><i class="glyphicon glyphicon-fire"></i> {% trans 'Global Interactions' %}</span>
-        <div class="count">0</div>
-      </div>
+  <!-- /.container -->
+
+  <!-- Data tiles -->
+  <div class="row tile_count">
+    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
+      <span class="count_top"><i class="glyphicon glyphicon-envelope"></i> {% trans 'Feeds' %}</span>
+      <div class="count">0</div>
     </div>
-    <!-- /data tiles -->
+    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
+      <span class="count_top"><i class="glyphicon glyphicon-pencil"></i> {% trans 'Articles' %}</span>
+      <div class="count">0</div>
+    </div>
+    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
+      <span class="count_top"><i class="glyphicon glyphicon-comment"></i> {% trans 'Comments' %}</span>
+      <div class="count">0</div>
+    </div>
+    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
+      <span class="count_top"><i class="glyphicon glyphicon-question-sign"></i> {% trans 'Questions' %}</span>
+      <div class="count">0</div>
+    </div>
+    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
+      <span class="count_top"><i class="glyphicon glyphicon-education"></i> {% trans 'Answers' %}</span>
+      <div class="count">0</div>
+    </div>
+    <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
+      <span class="count_top"><i class="glyphicon glyphicon-fire"></i> {% trans 'Global Interactions' %}</span>
+      <div class="count">0</div>
+    </div>
+  </div>
+  <!-- /data tiles -->
 {% endblock content %}
