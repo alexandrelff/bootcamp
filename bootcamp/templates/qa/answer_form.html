@@ -3,19 +3,25 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-  <div class="page-header">
-    <h1>{% trans 'Answer a question' %}</h1>
-  </div>
-
-  <form action="{% url 'qa:propose_answer' view.kwargs.question_id %}" id="answerForm" method="post" role="form">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <div class="form-group">
-      <button id="answer" type="submit" class="btn btn-primary">{% trans 'Answer' %}</button>
-      <a href="{% url 'qa:index_all' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="page-header">
+      <h1>{% trans 'Answer a question' %}</h1>
     </div>
-  </form>
-  {{ form.media }}
+
+    <div class="row">
+      <form action="{% url 'qa:propose_answer' view.kwargs.question_id %}" id="answerForm" method="post" role="form" class="col-md-8">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="form-group">
+          <button id="answer" type="submit" class="btn btn-primary">{% trans 'Answer' %}</button>
+          <a href="{% url 'qa:index_all' %}" class="btn btn-default">{% trans 'Cancel' %}</a>
+        </div>
+      </form>
+      {{ form.media }}
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
 
 {% endblock content %}
