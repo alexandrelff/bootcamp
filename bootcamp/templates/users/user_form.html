@@ -12,16 +12,10 @@
 {% block content %}
 
   <div class="row profile">
-    <div class="col-md-4 user-profile">
+    <div class="col-md-4 user-profile text-center">
+      <div  alt="{% trans 'User Image' %}" class="user-image" style="float: none; width: 200px; height: 200px;{% thumbnail user.picture 'x200' as im %} background-image: url({{ im.url }});{% endthumbnail %}"></div>
       <h1>{{ user.username|title }}</h1>
       {% if user.name %}<p class="lead">{{ user.name }}</p>{% endif %}
-      {% if user.picture %}
-        {% thumbnail user.picture "x250" as im %}
-          <img src="{{ im.url }}" alt="Picture Profile" id="pic">
-        {% endthumbnail %}
-      {% else %}
-        <img src="{% static 'img/user.png' %}" alt="No Profile Picture" />
-      {% endif %}
     </div>
 
     <div class="col-md-8">

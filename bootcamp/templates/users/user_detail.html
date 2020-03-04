@@ -10,16 +10,13 @@
 
 {% block content %}
   <!-- Page Content -->
-  <div class="container">
+  <div class="container clearfix">
+
+    <div  alt="{% trans 'User Image' %}" class="user-image mr-4" style="width: 200px; height: 200px;{% thumbnail object.picture 'x200' as im %} background-image: url({{ im.url }});{% endthumbnail %}"></div>
+
     <div class="page-header">
       <h1>{{ object.username|title }}</h1>
     </div>
-
-    {% thumbnail object.picture "x250" as im %}
-      <img src="{{ im.url }}" alt="Picture Profile" id="pic">
-    {% empty %}
-      <img class="pull-right" src="{% static 'img/user.png' %}" height="250px" alt="No Profile Picture" />
-    {% endthumbnail %}
 
     <div id="contact-info" class="vcard">
         {% if object.short_bio %}
