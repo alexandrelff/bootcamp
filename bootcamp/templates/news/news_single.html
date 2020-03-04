@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load humanize static %}
 {% load thumbnail %}
+{% load urlize_target_blank %}
 
 <li class="infinite-item card" news-id="{{ news.uuid_id }}">
   <div class="card-body">
@@ -18,7 +19,7 @@
           <a href="{% url 'users:detail' news.user.username  %}">{{ news.user.get_profile_name|title }}</a>
         </strong>
       </p>
-      <p>{{ news }}</p>
+      <p>{{ news|urlize|urlize_target_blank }}</p>
       {% if news.image %}
         <img class="card-img-top" src="{{ news.image }}" alt="Card image cap">
       {% endif %}
