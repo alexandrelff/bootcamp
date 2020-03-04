@@ -11,11 +11,7 @@
           <li class="card">
             <div class="card-body">
               <div class="profile-picture">
-                {% thumbnail request.user.picture "x60" as im %}
-                  <img src="{{ im.url }}" class="pull-left" style="border-radius: 50%;" alt="{% trans 'User Image' %}" class="user-image">
-                {% empty %}
-                  <img src="{% static 'img/user.png' %}" class="pull-left" height="60px" alt="{% trans 'No Profile Picture' %}" />
-                {% endthumbnail %}
+                <div  alt="{% trans 'User Image' %}" class="user-image" style="width: 60px; height: 60px;{% thumbnail request.user.picture 'x60' as im %} background-image: url({{ im.url }});{% endthumbnail %}"></div>
               </div>
               <div class="post">
                 <form id="replyNewsForm" role="form" method="post" action="#" onsubmit="return false">
