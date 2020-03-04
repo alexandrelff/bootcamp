@@ -917,7 +917,7 @@ msgstr "Interações globais"
 
 #: bootcamp/users/models.py:12
 msgid "User's name"
-msgstr "Nome do usuário"
+msgstr "Nome completo"
 
 #: bootcamp/users/models.py:14
 msgid "Profile picture"
