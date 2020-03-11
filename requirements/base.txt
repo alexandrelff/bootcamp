@@ -28,3 +28,7 @@ channels-redis>=2.2.1  # https://github.com/django/channels_redis
 # GraphQL API
 # ------------------------------------------------------------------------------
 graphene-django>=2.0  # https://github.com/graphql-python/graphene-django
+
+# Open Graph Protocol
+# ------------------------------------------------------------------------------
+beautifulsoup4  # https://www.crummy.com/software/BeautifulSoup/

@@ -22,21 +22,36 @@
           </strong>
         </p>
         <p>{{ reply|urlize|urlize_target_blank }}</p>
-        {% if reply.image %}
-          <img class="card-img-top" src="{{ reply.image }}" alt="Card image cap">
+        {% if reply.meta_url %}
+          <a href="{{ reply.meta_url }}" target="_blank" class="card meta">
+            {% if reply.meta_image %}
+              <div class="card-img-top" style="background-image: url({{ reply.meta_image }})"></div>
+            {% endif %}
+            <div class="card-body">
+              {% if reply.meta_title %}
+                <h5 class="card-title">{{ reply.meta_title }}</h5>
+              {% endif %}
+              {% if reply.meta_description %}
+                <p class="card-text">{{ reply.meta_description }}</p>
+              {% endif %}
+              {% if reply.meta_url %}
+                <p class="card-btn">{{ reply.meta_url }}</p>
+              {% endif %}
+            </div>
+          </a>
         {% endif %}
+        <div class="interaction" id="interaction">
+          <a href="#" class="like" title="{% for i in reply.get_likers %}{{ i }}&#10;{% endfor %}">
+            {% if request.user in reply.get_likers %}
+              <i class="heart fa fa-heart" aria-hidden="true"></i>
+            {% else %}
+              <i class="heart fa fa-heart-o" aria-hidden="true"></i>
+            {% endif %}
+            <span class="like-count">{{ reply.count_likers }}</span>
+          </a>
+          <span class="timestamp">{{ reply.timestamp|naturaltime }}</span>
+        </div>
       </div>
-    </div>
-    <div class="interaction" id="interaction">
-      <a href="#" class="like" title="{% for i in news.get_likers %}{{ i }}&#10;{% endfor %}">
-        {% if request.user in news.get_likers %}
-          <i class="heart fa fa-heart" aria-hidden="true"></i>
-        {% else %}
-          <i class="heart fa fa-heart-o" aria-hidden="true"></i>
-        {% endif %}
-        <span class="like-count">{{ news.count_likers }}</span>
-      </a>
-      <span class="timestamp">{{ reply.timestamp|naturaltime }}</span>
     </div>
   </li>
 {% endfor %}
