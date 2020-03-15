@@ -667,7 +667,7 @@ msgstr "Rede"
 
 #: bootcamp/templates/base.html:52 bootcamp/templates/pages/home.html:20
 msgid "Start Session"
-msgstr "Iniciar sessão"
+msgstr "Entrar"
 
 #: bootcamp/templates/base.html:71 bootcamp/templates/news/news_single.html:9
 #: bootcamp/templates/news/news_thread.html:11
