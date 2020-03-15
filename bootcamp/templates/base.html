@@ -104,16 +104,16 @@
         {% if messages %}
           {% for message in messages %}
 
-            {% if 'Você saiu do sistema' in message %}
+            {% if 'Você saiu do sistema' in message.message %}
               <script>logEvent("USER_LOGOFF");</script>
             {% endif %}
-            {% if 'Login realizado com sucesso como' in message %}
+            {% if 'Login realizado com sucesso como' in message.message %}
               <script>logEvent("USER_LOGIN");</script>
             {% endif %}
-            {% if 'E-mail de confirmação enviado para' in message %}
+            {% if 'E-mail de confirmação enviado para' in message.message %}
               <script>logEvent("USER_SIGNUP_CONFIRM_REQUEST");</script>
             {% endif %}
-            {% if 'Confirmou ' in message %}
+            {% if 'Confirmou ' in message.message %}
               <script>logEvent("USER_SIGNUP_CONFIRMED");</script>
             {% endif %}
 
