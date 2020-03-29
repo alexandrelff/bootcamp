@@ -56,11 +56,12 @@
       <a href="{{ object.facebook_account }}" style="font-size: 2em" title="{% trans 'Facebook Profile' %}"><i class="fa fa-facebook"></i>  </a>
     {% endif %}
     {% if request.user.username == object.username %}
-      <a class="btn btn-primary pull-right" href="{% url 'users:update' %}">{% trans 'Update Profile' %}</a>
+      <a class="btn btn-primary" href="{% url 'users:update' %}">{% trans 'Update Profile' %}</a>
     {% endif %}
   </div>
   <!-- /.container -->
 
+  {% comment %}
   <!-- Data tiles -->
   <div class="row tile_count">
     <div class="col-md-2 col-sm-3 col-xs-4 tile_stats_count">
@@ -89,4 +90,5 @@
     </div>
   </div>
   <!-- /data tiles -->
+  {% endcomment %}
 {% endblock content %}
