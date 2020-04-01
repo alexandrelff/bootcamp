@@ -31,6 +31,9 @@ class User(AbstractUser):
     bio = models.CharField(
         _('Short bio'), max_length=280, blank=True, null=True)
 
+    class Meta:
+        ordering = ["username"]
+
     def __str__(self):
         return self.username
 
