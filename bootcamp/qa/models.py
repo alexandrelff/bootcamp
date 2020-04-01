@@ -146,7 +146,7 @@ class Answer(models.Model):
     votes = GenericRelation(Vote)
 
     class Meta:
-        ordering = ["-is_answer", "-timestamp"]
+        ordering = ["-is_answer", "-total_votes", "-timestamp"]
         verbose_name = _("Answer")
         verbose_name_plural = _("Answers")
 
