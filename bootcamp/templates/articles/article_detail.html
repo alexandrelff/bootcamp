@@ -35,11 +35,11 @@
         <div class="card my-4">
           <h5 class="card-header">{% trans 'Comments' %}:</h5>
           {% get_comment_list for article as comment_list %}
-          {% for comment in comment_list %}
+          {% for  comment in comment_list %}
             <div class="media m-4">
-              <div  alt="{% trans 'User Image' %}" class="user-image mr-2" style="width: 50px; height: 50px;{% thumbnail comment.user.picture 'x50' as im %} background-image: url({{ im.url }});{% endthumbnail %}"></div>
+              <a href="{% url 'users:detail' comment.user.username  %}"><div  alt="{% trans 'User Image' %}" class="user-image mr-2" style="width: 50px; height: 50px;{% thumbnail comment.user.picture 'x50' as im %} background-image: url({{ im.url }});{% endthumbnail %}"></div></a>
               <div class="media-body">
-                <h5 class="mt-0">{{ comment.user.get_profile_name|title }}</h5>
+                <h5 class="mt-0"><a href="{% url 'users:detail' comment.user.username  %}">{{ comment.user.get_profile_name }}</a></h5>
                 {{ comment.comment|linebreaks }}
               </div>
             </div>
