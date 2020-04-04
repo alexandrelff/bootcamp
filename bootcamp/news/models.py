@@ -32,7 +32,7 @@ class News(models.Model):
     meta_type = models.CharField(max_length=255, null=True)
     meta_title = models.CharField(max_length=255, null=True)
     meta_description = models.TextField(max_length=255, null=True)
-    meta_image = models.TextField(max_length=255, null=True)
+    meta_image = models.CharField(max_length=255, null=True)
 
     class Meta:
         verbose_name = _("News")
