@@ -178,3 +178,20 @@ section {
   background-size:cover;
   float: left;
 }
+
+iframe.full {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.home h1 strong{
+  background-color: #FFFB;
+  padding: 0 10px;
+}
+
+.home .mb-5{
+  background-color: #FFFB;
+}
