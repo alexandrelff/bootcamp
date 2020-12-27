@@ -20,6 +20,7 @@
         </strong>
       </p>
       <p>{{ news|urlize|urlize_target_blank }}</p>
+      
       {% if news.meta_url %}
         <a href="{{ news.meta_url }}" target="_blank" class="card meta">
           {% if news.meta_image %}
@@ -38,7 +39,6 @@
           </div>
         </a>
       {% endif %}
-    
       <div class="interaction" id="interaction">
         <a href="#" class="like" title="{% for i in news.get_likers %}{{ i }}&#10;{% endfor %}">
           {% if request.user in news.get_likers %}
