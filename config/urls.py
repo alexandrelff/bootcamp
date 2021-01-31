@@ -10,9 +10,9 @@ from graphene_django.views import GraphQLView
 urlpatterns = [
     url(r"^$", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     url(
-        r"^about/$",
-        TemplateView.as_view(template_name="pages/about.html"),
-        name="about",
+        r"^sobre/$",
+        TemplateView.as_view(template_name="pages/sobre.html"),
+        name="sobre",
     ),
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
