@@ -8,6 +8,7 @@ from django.views.decorators.http import require_http_methods
 from django.views.generic import ListView, DeleteView
 
 from bootcamp.helpers import ajax_required, AuthorRequiredMixin
+from bootcamp.news.mailing import notify_added_news
 from bootcamp.news.models import News
 
 
@@ -43,6 +44,7 @@ def post_news(request):
         html = render_to_string(
             "news/news_single.html", {"news": posted, "request": request}
         )
+        notify_added_news(posted)
         return HttpResponse(html)
 
     else:
