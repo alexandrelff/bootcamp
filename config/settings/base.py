@@ -83,6 +83,7 @@ THIRD_PARTY_APPS = [
     "graphene_django",
     "markdownx",
     "taggit",
+    "captcha",
 ]
 LOCAL_APPS = [
     "bootcamp.users.apps.UsersConfig",
@@ -243,6 +244,8 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "bootcamp.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "bootcamp.users.adapters.SocialAccountAdapter"
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+ACCOUNT_FORMS = {'signup': "bootcamp.account.signup.forms.UserSpamForm"}
 
 
 # Your stuff...
@@ -263,3 +266,8 @@ CHANNEL_LAYERS = {
 
 # GraphQL settings
 GRAPHENE = {"SCHEMA": "config.schema.schema"}
+# ------------------------------------------------------------------------------
+
+#UserSpam - reCAPTCHA
+RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")

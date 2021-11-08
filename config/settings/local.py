@@ -70,3 +70,6 @@ INSTALLED_APPS += ["django_extensions"]  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+# bypass the security check that prevents the test keys from being used
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
