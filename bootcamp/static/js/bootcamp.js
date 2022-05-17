@@ -1,5 +1,16 @@
 /* Project specific Javascript goes here. */
 
+
+//Footer
+$(function () {
+    var isHome = $(".home").length > 0;
+    if(isHome){
+        var footer = $("#footer");
+        footer.addClass("bottom")
+        $("iframe").height(window.innerHeight - footer.height())
+    }
+})
+
 /*
 Formatting hack to get around crispy-forms unfortunate hardcoding
 in helpers.FormHelper:

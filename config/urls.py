@@ -1,3 +1,4 @@
+from re import template
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
@@ -33,6 +34,8 @@ urlpatterns = [
     url(r"^messages/", include("bootcamp.messager.urls", namespace="messager")),
     url(r"^qa/", include("bootcamp.qa.urls", namespace="qa")),
     url(r"^search/", include("bootcamp.search.urls", namespace="search")),
+    url(r"^politics/", TemplateView.as_view(template_name="politics.html"), name="politics"),
+    url(r"^terms/", TemplateView.as_view(template_name="terms.html"), name="terms"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
